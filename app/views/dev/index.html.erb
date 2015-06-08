@@ -1,0 +1,15 @@
+
+
+
+<div id="usersapps">
+	Your apps (<%=@apps.size%>):
+<% @apps.each{|app|
+	
+%>	
+	<div onclick="window.location='/dev/showapp?appid=<%=app.id%>'"><%=app.name%></div>
+	
+<%}%>
+</div>
+<div>
+	<a href="/dev/pre_create">Create App</a>
+</div>

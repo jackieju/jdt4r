@@ -1,0 +1,33 @@
+
+<style>
+.row{
+	height:30px;
+}
+.appname{
+	width:100px;
+	float:left;
+}
+.btn_bar{
+	width: 300px;
+	border:0px solid red;
+}
+.btn_bar_btn{
+	float:right;
+}
+</style>
+<div id="userinstalledapps">
+	You installed <%=@apps.size%> apps:
+<% @apps.each{|app|
+	
+%>	
+
+<div class="row">
+	<div class="app appname" ><%=app.name%></div>
+	<div class="btn_bar" >
+		<div class="btn btn_bar_btn">uninstall</div>
+	</div>
+	<div style="clear:both">
+	</div>
+</div>	
+<%}%>
+</div>

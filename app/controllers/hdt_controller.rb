@@ -1,0 +1,2 @@
+class HdtController < ApplicationController
+end

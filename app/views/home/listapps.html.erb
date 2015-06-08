@@ -1,0 +1,40 @@
+<style>
+.app{
+width:120px;
+height:120px;
+background:white;
+padding:5px;
+margin:10px;
+}
+.apptitle{
+	font-size:12pt;
+	font-weight:400;
+	
+}
+.applogo_small{
+	width:50px;
+	height:50px;
+	margin:2px;
+}
+</style>
+<script>
+function show_app(id){
+	// window.location = "/oauth/applications/"+id;
+	window.location = "/userapp/install?appid="+id;
+}
+</script>
+
+<% count = 1 %>
+<% @applications.each {|app| %>
+
+<div class="app" style="float:left;background:#<%=g_colors[(app.id%9)] %>" onclick="show_app(<%=app.id%>);">
+	<div class="apptitle" ><center><%=app.name %></center></div>
+	<div style="text-align:center;margin-top:5px;"><img class="applogo_small" src="/images/app.png"/></div>
+	<div style="font-size:10pt;">Category: ERP</div>	
+	<div style="font-size:10pt;">Author:SAP<%=app.scopes.to_s %></div>
+</div>	
+<% if count %5 == 0 %>
+	<div style="clear:both">
+	</div>
+<% end %>
+<% } %>

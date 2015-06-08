@@ -1,0 +1,30 @@
+
+<script>	
+window._token = '<%= form_authenticity_token %>';
+</script>
+	<div id="login">
+		<form action="/login" method="post">
+			    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+		<div style="float:left;width:100px;">
+		user name:
+		</div>
+		<div style="float:left;">
+			<input name="username"></input>
+		</div>
+		<div style="clear:both;">
+		</div>
+		
+		<div style="float:left;width:100px;">
+		password:
+		</div>
+		<div style="float:left;">
+			<input name="password" type="password"></input>
+		</div>	
+		<div style="clear:both;">
+		</div>
+		
+		<div>
+			<input type="submit"></input>
+		</div>
+		</form>
+	</div>

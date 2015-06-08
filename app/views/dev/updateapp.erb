@@ -1,0 +1,81 @@
+
+<div style="font-size:18pt;">
+<style>
+.f{
+	float:left;
+	width:120px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	height: 27px;
+	line-height: 20px;
+}
+.f input{
+/*	height: 34px;*/
+	width:300px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.row{
+	height:50px;
+}
+code{
+	padding: 2px 4px;
+	font-size: 90%;
+	color: #c7254e;
+	background-color: #f9f2f4;
+	white-space: nowrap;
+	border-radius: 4px;
+	font-family:Menlo,Monaco,Consolas,"Courier New",monospace
+}
+</style>
+<div style="height:50px;">
+Update App Successfully !
+</div>
+	<div class="row"> 
+		<div class="f" >App Key:</div> 
+		<div class="f" ><input disabled name="name" value="<%=@app.uid%>"></div>
+		<div style="clear:both"></div>
+	</div>
+	<div class="row"> 
+		<div class="f" >Secrect:</div> 
+		<div class="f" ><input disabled name="name" value="<%=@app.secret%>"></div>
+		<div style="clear:both"></div>
+	</div>
+<div class="row"> 
+	<div class="f" >App Name:</div> 
+	<div class="f" ><input disabled name="name" value="<%=@app.name%>"></div>
+	<div style="clear:both"></div>
+</div>
+<div class="row" style="height:100px;"> 
+	<div class="f" >Callback URL:</div> 
+	<div class="f" ><input disabled name="redirect_uri" value="<%=@app.redirect_uri%>"></div>
+	<div style="clear:both"></div>
+</div>
+<div class="row"> 
+	<div class="f" >Category:</div> 
+	<div class="f" ><input name="cat" disabled value="<%=@app.cat%>" ></div>
+	<div style="clear:both"></div>
+</div>
+<div class="row"> 
+	<div class="f" >API Doc URL:</div> 
+	<div class="f" ><input name="api_uri" disabled value="<%=@app.api_uri%>"></div>
+	<div style="clear:both"></div>
+</div>
+<div class="row"> 
+<div class="f" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> 
+<!-- <div class="f" ><input type=submit style="background-image: linear-gradient(rgb(111, 180, 32), rgb(81, 147, 13), rgb(81, 147, 13));"></div>
+	<div style="clear:both"></div>
+</div> -->
+
+</div>
