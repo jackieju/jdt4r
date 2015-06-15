@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+    
   resources :ojdts
   resources :jdt1s
   resources :users
+  
   post 'login' => 'login'
   
   get 'testapi/index'
@@ -10,8 +12,7 @@ Rails.application.routes.draw do
   
   get 'jdt/CreateJournalEntry'
   
-  get ':controller(/:action(/:id))'
-  post ':controller(/:action(/:id))'
+  # get 'cda'=>"cda#index"
   
   
   use_doorkeeper
@@ -71,5 +72,10 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  get ':controller(/:action(/:id))'
+  post ':controller(/:action(/:id))'
+  
+  root 'home#login'
   
 end

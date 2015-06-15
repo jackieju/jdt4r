@@ -44,7 +44,7 @@ code{
 
 
 <div style="height:50px;">
-Create App:
+Update App:
 </div>
 <form method=post action="/dev/updateapp">
 	<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
@@ -52,12 +52,12 @@ Create App:
 	
 		<div class="row"> 
 			<div class="f" >App Key:</div> 
-			<div class="f" ><input  name="name" value="<%=@app.uid%>" disabled></div>
+			<div class="f" ><input  name="name" style="color:black;width:550px;" value="<%=@app.uid%>" disabled ></div>
 			<div style="clear:both"></div>
 		</div>
 		<div class="row"> 
 			<div class="f" >Secrect:</div> 
-			<div class="f" ><input  name="name" value="<%=@app.secret%>" disabled></div>
+			<div class="f" ><input  name="name" style="color:black;width:550px;" value="<%=@app.secret%>" disabled></div>
 			<div style="clear:both"></div>
 		</div>
 	<div class="row"> 
@@ -80,10 +80,16 @@ Create App:
 		<div class="f" ><input name="api_uri"  value="<%=@app.api_uri%>"></div>
 		<div style="clear:both"></div>
 	</div>
-<div class="row"> 
-<div class="f" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> 
-<div class="f" ><input type=submit style="background-image: linear-gradient(rgb(111, 180, 32), rgb(81, 147, 13), rgb(81, 147, 13));"></div>
-	<div style="clear:both"></div>
-</div>
+	<div class="row"> 
+		<div class="f" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div> 
+		<div class="f" style="width:100px;">
+			<input type=submit style="width:100px;background-image: linear-gradient(rgb(111, 180, 32), rgb(81, 147, 13), rgb(81, 147, 13));"/>
+		</div>
+		<div class="f"  style="padding-top:8px;padding-bottom:10px;text-align:center;height:16px;margin:2px;width:100px;background-image: linear-gradient(rgb(111, 180, 32), rgb(81, 147, 13), rgb(81, 147, 13));" onclick="window.location='/oauth/applications/<%=@app.id%>'">
+			Test
+		</div>
+
+		<div style="clear:both"></div>
+	</div>
 </form>
 </div>

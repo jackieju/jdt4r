@@ -1,14 +1,27 @@
 require 'log.rb'
+require 'openssl'
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 Doorkeeper.configure do
   # Change the ORM that doorkeeper will use (needs plugins)
   orm :active_record
-  login_url="http://localhost:3000/home/login"
+  login_url="https://localhost:3001/home/login/"
   p "setup doorkeep configuration"
   # This block will be called to check whether the resource owner is authenticated or not.
   resource_owner_authenticator do
+      p "cookies:#{cookies.inspect}"
+      p "session[:uid]=#{session[:uid]}, #{User.find_by_id(session[:uid]).inspect}"
       p "==ddddddd", 300
-    User.find_by_id(session[:uid]) || redirect_to(login_url)
+     
+    if session[:uid] == nil  
+         redirect_to(login_url)
+     else
+         u = User.find_by_id(session[:uid])
+         redirect_to(login_url) if u == nil
+             
+    end
+     u
+    # User.find_by_id(session[:uid]) || redirect_to(login_url)
     # fail "Please configure doorkeeper resource_owner_authenticator block located in #{__FILE__}"
     # Put your resource owner authentication logic here.
     # Example implementation:
@@ -54,8 +67,8 @@ Doorkeeper.configure do
   # Define access token scopes for your provider
   # For more information go to
   # https://github.com/doorkeeper-gem/doorkeeper/wiki/Using-Scopes
-  # default_scopes  :public
-  # optional_scopes :write, :update
+  default_scopes  :public
+  optional_scopes :write, :update
 
   # Change the way client credentials are retrieved from the request object.
   # By default it retrieves first from the `HTTP_AUTHORIZATION` header, then
@@ -99,7 +112,8 @@ Doorkeeper.configure do
   #   http://tools.ietf.org/html/rfc6819#section-4.4.3
   #
   # grant_flows %w(authorization_code client_credentials)
-
+  grant_flows %w(authorization_code implicit password client_credentials)
+  
   # Under some circumstances you might want to have applications auto-approved,
   # so that the user skips the authorization step.
   # For example if dealing with a trusted application.
