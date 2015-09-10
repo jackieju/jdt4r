@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Appexts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Appid</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appexts.each do |appext| %>
+      <tr>
+        <td><%= appext.appid %></td>
+        <td><%= appext.name %></td>
+        <td><%= link_to 'Show', appext %></td>
+        <td><%= link_to 'Edit', edit_appext_path(appext) %></td>
+        <td><%= link_to 'Destroy', appext, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Appext', new_appext_path %>

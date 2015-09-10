@@ -1,0 +1,85 @@
+<script src="/javascripts/jquery-2.1.1.js" ></script>
+
+<div id="main">
+<script>
+
+/*$.ajax({
+		type: "post",
+		url: "https://localhost:3001/main?t="+ new Date().getTime(),
+		
+		success: function(data, textStatus){
+			  alert(data);
+		
+		},
+		error: function(xhr, textStatus, errorThrow){
+			alert("error"+errorThrow+","+textStatus+","+xhr.responseText);
+		
+		}
+});*/
+</script>
+
+<!--form id="canvas_iframe_post_5577e6fe6d8b50e92091231" onsubmit="" target="iframe_canvas_fb_https"
+ method="post" action="https://localhost:3001/main/">
+
+    <input type="hidden" value="HDiUu7baTyL7nefB0H6P78DuuU8re1nuKVqP7jcQUZc.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImlzc3VlZF9hdCI6MTQzMzkyMTI3OCwidXNlciI6eyJjb3VudHJ5IjoidXMiLCJsb2NhbGUiOiJlbl9VUyIsImFnZSI6eyJtaW4iOjIxfX19" name="signed_request" autocomplete="off"></input>
+    <input type="hidden" value="en_US" name="fb_locale" autocomplete="off"></input>
+<input type=submit />
+</form>
+
+<iframe id="iframe_canvas" class="smart_sizing_iframe" scrolling="yes" height="800" 
+frameborder="0" allowfullscreen="" msallowfullscreen="" oallowfullscreen="" 
+mozallowfullscreen="" webkitallowfullscreen="" src="javascript:""" name="iframe_canvas_fb_https" 
+style="height: 424px;">
+</iframe-->
+
+<% t = Time.now.to_i
+	tf = Time.now.to_f
+	formid = "canvas_iframe_post_#{@app.id}#{t}"
+%>
+<script>
+
+</script>
+<form id="<%=formid%>" onsubmit="" target="iframe_canvas_fb_https"
+ method="post" action="<%=@app.redirect_uri%>?t=<%=tf%>">
+
+    <input type="hidden" value="HDiUu7baTyL7nefB0H6P78DuuU8re1nuKVqP7jcQUZc.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImlzc3VlZF9hdCI6MTQzMzkyMTI3OCwidXNlciI6eyJjb3VudHJ5IjoidXMiLCJsb2NhbGUiOiJlbl9VUyIsImFnZSI6eyJtaW4iOjIxfX19" name="signed_request" autocomplete="off"></input>
+    <input type="hidden" value="en_US" name="fb_locale" autocomplete="off"></input>
+<!--input type=submit /-->
+</form>
+
+
+<iframe id="iframe_canvas" name="iframe_canvas_fb_https" frameborder="0" allowfullscreen="" msallowfullscreen="" oallowfullscreen="" 
+mozallowfullscreen="" webkitallowfullscreen="" src="javascript:""" style="width:1024px;height:768px;">
+</iframe>
+<!--iframe src="http://www.baidu.com">
+</iframe-->
+<script>
+//var iframe = document.createElement('iframe');
+//var html = '<body>Foo</body>';
+//document.body.appendChild(iframe);
+//iframe.contentWindow.document.open();
+//iframe.contentWindow.document.write(html);
+//iframe.contentWindow.document.close();
+</script>
+<script>
+    $("#canvas").ready(function () { //The function below executes once the iframe has finished loading
+        //$('some selector', frames['nameOfMyIframe'].document).doStuff();
+		//set_iframe_content();
+    });
+function set_iframe_content(c){
+//alert(c);
+//	$(c).find("body").html("pppppp");
+//	alert($("#canvas").contents()[0]);
+	$("#canvas").contents().find("body").html("jjjjjj");
+}
+//iframe1 = $("#canvas");
+//h = "fasdfdfsfksajfksajfskljfskljfskljflks";
+//iframe1.contents().find("body").html(h);
+//alert(iframe1.contentWindow.document.html());
+//iframe.contentWindow
+//alert(100);
+
+$("form#<%=formid%>").submit();
+//alert($("form#<%=formid%>").length);
+</script>
+</div>

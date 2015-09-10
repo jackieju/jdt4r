@@ -1,0 +1,36 @@
+install liquid
+git clone https://github.com/Shopify/liquid.git
+cd liquid
+gem build liquid.gemspec
+gem install --local liquid-4.0.0.alpha.gem
+
+# for rails >= 3
+Add gem 'liquid' to your Gemfile. 
+Run 'Bundle Install'
+
+
+App Dev
+=========
+# create app
+rails new eshop
+
+# create main controller
+rails g controller main
+
+# run rails4 on https
+add line
+	gem 'thin' 
+in gemfile
+
+$ thin start --ssl
+
+On app side server:
+# comment out the protect ( or only for the callback interface for openapi)
+# protect_from_forgery with: :exception
+
+after_filter :set_header_for_iframe
+
+private
+def set_header_for_iframe 
+    response.headers.delete "X-Frame-Options" 
+end
