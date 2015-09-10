@@ -9,16 +9,21 @@ Doorkeeper.configure do
   p "setup doorkeep configuration"
   # This block will be called to check whether the resource owner is authenticated or not.
   resource_owner_authenticator do
+      p "===>params:#{params.inspect}"
       p "cookies:#{cookies.inspect}"
       p "session[:uid]=#{session[:uid]}, #{User.find_by_id(session[:uid]).inspect}"
       p "==ddddddd", 300
      
+     # params[:red]=""
+     _login_url = login_url
+     if params[:redirect_uri]
+         _login_url = "#{login_url}?redirect_uri=#{params[:redirect_uri]}"
+     end
     if session[:uid] == nil  
-         redirect_to(login_url)
+         redirect_to(_login_url)
      else
          u = User.find_by_id(session[:uid])
-         redirect_to(login_url) if u == nil
-             
+         redirect_to(_login_url) if u == nil  
     end
      u
     # User.find_by_id(session[:uid]) || redirect_to(login_url)

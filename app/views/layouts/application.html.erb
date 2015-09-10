@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
 <script src="/javascripts/jquery-2.1.1.js" ></script>
 </head>
-<body>
+<body style="height:100%;border:1px solid green;" >
 	<style>
+	html {
+		height: 100%;
+	}
 	.btn{
 		    display: inline-block;
 /*		    width: 120px;*/
@@ -53,23 +56,27 @@
 		border-right:0px solid blue;
 	}
 	</style>
-	<div id="nav" style="border-bottom:1px solid gray;font-size:12pt;width:100%;">
+	<div id="nav" style="height:23px;border-bottom:1px solid gray;font-size:12pt;width:100%;">
 		<div style="margin-bottom:5px;float:left;">
+			
 			<% if @current_user%>
-		Hello, <%=@current_user.name %>(<%=@current_user.id %>) <a href="/userapp">Installed Apps</a> <a href="/home/logout">logout</a>
+		Hello, <%=@current_user.name %>(<%=@current_user.id %>) 
+		<a href="/userapp">Admin</a> 
+		<a href="/home/logout">logout</a>
 			<% else %>
 			Hello, Guest  <a href="/home/login">Login</a>
 			<% end %>
 		</div>
+		
 		<div class="nav_item" style=""><a href="/home/listapps">AppStore</a></div>
 		<div class="nav_item" >| </div>
-		<div class="nav_item" ><a href="/dev">Developers' Portal</a></div>
-		<div class="nav_item" >| </div>
+		<!--div class="nav_item" ><a href="/dev">Developers' Portal</a></div>
+		<div class="nav_item" >| </div-->
 		<div class="nav_item" ><a href="/home">Home</a></div>
 		
 		<div style="clear:both">
 		</div>
-	</div>
+	</div> <!-- nav -->
 
 <%= yield %>
 

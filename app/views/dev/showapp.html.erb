@@ -75,6 +75,17 @@ Update App:
 		<div class="f" ><input name="cat"  value="<%=@app.cat%>" ></div>
 		<div style="clear:both"></div>
 	</div>
+	
+	<div class="row"> 
+		<div class="f" >Show In Main UI App List:</div> 
+		<% if @appext && @appext.show_in_left == 1%>
+		<div class="f" ><input name="show_in_left" type="checkbox" checked></div>
+		<% else %>
+		<div class="f" ><input name="show_in_left" type="checkbox" ></div>
+		
+		<% end %>
+		<div style="clear:both"></div>
+	</div>
 	<div class="row"> 
 		<div class="f" >API Doc URL:</div> 
 		<div class="f" ><input name="api_uri"  value="<%=@app.api_uri%>"></div>

@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606135520) do
+ActiveRecord::Schema.define(version: 20150910165453) do
+
+  create_table "appexts", force: :cascade do |t|
+    t.integer  "appid",        limit: 4
+    t.string   "name",         limit: 255
+    t.string   "icon_s",       limit: 255
+    t.string   "icon_m",       limit: 255
+    t.string   "icon_b",       limit: 255
+    t.integer  "show_in_left", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "jdt1s", force: :cascade do |t|
     t.integer  "TransId",    limit: 4
@@ -175,6 +186,10 @@ ActiveRecord::Schema.define(version: 20150606135520) do
     t.string   "scopes",       limit: 255,   default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "author",       limit: 4
+    t.string   "cat",          limit: 255
+    t.integer  "api",          limit: 4,     default: 0
+    t.text     "api_uri",      limit: 65535
   end
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true, using: :btree

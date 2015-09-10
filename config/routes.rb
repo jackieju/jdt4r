@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
     
+  resources :appexts
+  resources :appexts
   resources :ojdts
   resources :jdt1s
   resources :users

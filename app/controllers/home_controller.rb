@@ -1,8 +1,10 @@
 require 'doorkeeper/orm/active_record/application.rb'
 class HomeController < ApplicationController
+    before_filter :check_session , only: [:home]
     
      helper :all
     def login
+        @redirect_uri = params[:redirect_uri]
     end
     
     def logout
@@ -34,5 +36,20 @@ class HomeController < ApplicationController
     end
     
     def userapp
+    end
+    
+    def home
+        @apps = []
+        list = Userapp.find_by_sql("select * from userapps where uid=#{@current_uid }")
+        list.each{|app|
+            res = Doorkeeper::Application.find_by_sql("select * from oauth_applications where id=#{app.app}")
+            if res && res.size >0
+                appext = get_appext(app.app)
+                if appext && appext.show_in_left == 1
+                    @apps.push(res[0])
+                end
+            end
+        }
+        render :layout=>true
     end
 end

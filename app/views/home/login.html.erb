@@ -10,6 +10,8 @@ window._token = '<%= form_authenticity_token %>';
 		</div>
 		<div style="float:left;">
 			<input name="username"></input>
+			<input name="redirect_uri" type="text" value="<%=@redirect_uri%>" hidden></input>
+			
 		</div>
 		<div style="clear:both;">
 		</div>
